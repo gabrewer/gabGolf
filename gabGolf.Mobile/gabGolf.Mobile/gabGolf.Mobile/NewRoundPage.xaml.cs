@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gabGolf.Mobile.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,34 +20,52 @@ namespace gabGolf.Mobile
         public NewRoundPage()
         {
             InitializeComponent();
-            //BindingContext = new ContentPageViewModel();
+            BindingContext = new NewRoundPageViewModel(this.Navigation);
         }
     }
 
     class NewRoundPageViewModel : INotifyPropertyChanged
     {
+        private String courseName;
+        private DateTime datePlayed;
+        private INavigation navigation;
 
-        public NewRoundPageViewModel()
+        public NewRoundPageViewModel(INavigation nav)
         {
-            IncreaseCountCommand = new Command(IncreaseCount);
+            navigation = nav;
+
+            courseName = "";
+            datePlayed = DateTime.Now;
+            StartRoundCommand = new Command(StartRound);
         }
 
-        int count;
-
-        string countDisplay = "You clicked 0 times.";
-        public string CountDisplay
+        public string CourseName
         {
-            get { return countDisplay; }
-            set { countDisplay = value; OnPropertyChanged(); }
+            get { return courseName; }
+            set { courseName = value; OnPropertyChanged(); }
         }
 
-        public ICommand IncreaseCountCommand { get; }
+        public DateTime DatePlayed
+        {
+            get { return datePlayed; }
+            set { datePlayed = value; OnPropertyChanged(); }
+        }
 
-        void IncreaseCount() =>
-            CountDisplay = $"You clicked {++count} times";
+        public ICommand StartRoundCommand { get; }
 
+        private async void StartRound()
+        {
+            Round newRound = new Round()
+            {
+                Course = CourseName,
+                PlayedAt = datePlayed
+            };
+
+            await navigation.PushAsync(new HolePage());
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gabGolf.Mobile.HolePage">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Hole" FontSize="40"/>
+            <Label Text="Shot" FontSize="20"/>
+            <Label Text="Club"/>
+            <Editor Text="{Binding Club}"></Editor>
+            <Label Text="Start Location"></Label>
+            <Label Text="{Binding Location}"></Label>
+            <Button Text="Save" Command="{Binding SaveShotCommand}"></Button>
+            <Button Text="Putt" Command="{Binding SavePuttCommand}">></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

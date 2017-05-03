@@ -14,7 +14,7 @@ namespace gabGolf.Mobile
             InitializeComponent();
         }
 
-        public void OnNewReoundClicked(object o, EventArgs e)
+        public void OnNewRoundClicked(object o, EventArgs e)
         {
             Navigation.PushAsync(new NewRoundPage());
         }

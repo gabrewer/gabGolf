@@ -1,7 +1,8 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "Xamarin.Forms": "2.3.3.193"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
+    "Xam.Plugin.Geolocator": "4.0.0.55-beta",
+    "Xamarin.Forms": "2.3.5.235-pre2"
   },
   "frameworks": {
     "uap10.0": {}

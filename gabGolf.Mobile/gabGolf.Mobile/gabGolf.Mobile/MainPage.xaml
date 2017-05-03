@@ -8,7 +8,7 @@
                          VerticalOptions="Center">
         <Button Text="New Round" TextColor="White"
                         BackgroundColor="#77D065"
-                         Clicked="OnNewReoundClicked"
+                         Clicked="OnNewRoundClicked"
                         />
         <Button Text="Scores" TextColor="White"
                         BackgroundColor="#77D065"

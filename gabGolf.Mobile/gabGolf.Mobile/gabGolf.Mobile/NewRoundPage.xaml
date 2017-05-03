@@ -6,6 +6,12 @@
   <ScrollView>
     <StackLayout Padding="10">
             <Label Text="New Round" FontSize="40"/>
+            <Label Text="Course Name"></Label>
+            <Editor Text="{Binding CourseName}"></Editor>
+            <Label Text="Date"></Label>
+            <DatePicker Date="{Binding DatePlayed}"></DatePicker>
+            <Button Text="Start Round" Command="{Binding StartRoundCommand}"></Button>
         </StackLayout>
   </ScrollView>
 </ContentPage>
+    
